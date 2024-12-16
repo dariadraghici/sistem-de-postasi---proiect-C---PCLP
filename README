@@ -1,0 +1,92 @@
+Nume: Drăghici Daria-Ioana
+Grupa: 312 CC
+
+Timp implementare cerinte: (aproximare, fara cronometru, doar uitandu ma la ceas)
+  Struct-uri : aproximativ 15 minute
+  Main (per total) : aproximativ 25-30 (modificare dupa fiecare cerinta in parte +
+                     intializari + dezalocari)
+  Cerinta 1 : aproximativ o ora
+  Cerinta 2: 50 de minute
+  Cerinta 3: o ora si jumatate
+  Cerinta 4: 2 ore
+  Cerinta 5: 3-4 ore
+  Cerinta 6: 4-5 ore
+  Cerinta 7: o ora si jumatate
+Unele cerinte le am implementat pe parcursul mai multor zile, de aceea timpul este
+estimativ (mai ales la cerinta 6 care m a pus putin in dificultate).
+
+Implementarea explicata (pe scurt):
+Incep prin a declara fiecare structura in parte, cu detaliile mentionate in
+“1 Specificatii”, utilizand deopotriva typedef pentru a initializa mai usor
+(asemenea cursului).
+
+Cerinta 1:
+Aceasta este compusa din 2 functii: "citeste_date" si "afisare_cerinta_1". In prima ma
+ocup cu citirea de la tastatura a datelor si “stocarea” lor in structurile anterior
+declarate. Nelipsita este, insa, alocarea dinamica, care, de altfel, este dezalocata
+la sfarsit ul main ului. Detaliile pe care le am considerat de finete (precum
+getchar();) le am explicat mai pe larg in cadrul codului. In cea de a doua functie
+ma ocup cu afisarea, precum spune si numele, pe baza regulile din “4.2 Output”,
+fiind atenta la spatieri si newline uri.
+
+Cerinta 2:
+Aceasta este compusa din 2 functii: extrage_din adresa si afisare_cerinta_2. Prima
+se ocupa cu extragerea id ului cartierului, a strazii si a numarului, pe baza
+punctului 3 din “Specificatii” (inmultirea cu puteri ale lui 2 in functie de
+numarul de pozitii). Cea de a doua functie se ocupa cu afisarea dupa regulile din
+“4.2 Output”.
+
+Cerinta 3:
+Pentru a distribui pachetele se intelege din Specificatii cum ca postasul sef ar fi
+cel ce ar face o, doar ca nu am gasit o modalitate in care as fi putut sa l includ
+si pe acesta, dat fiind faptul ca pachetele trebuie “stocate” in structura de
+postasi, pentru ca cu aceasta voi opera mai tarziu. Rezolvarea este compusa din 
+2 functii: distribuire_pachete si afisare_cerinta_3. Astfel, am alocat memorie pentru
+postasi, distribuind pachetele folosindu ma de auxiliare (postas_curent si
+idCartier) pentru a simplifica sintaxa. Cea de a doua functie se ocupa cu afisarea,
+care m a pus putin in dificultate in ceea ce priveste newline urile.
+
+Cerinta 4:
+Aceasta este compusa din 2 functii: sorteaza_pachete si afisare_cerinta_4. Prima
+functie a fost implementata folosind un algoritm clasic de sortare, anume Bubble
+sort, utilizandu ma de auxiliare (postas_curent p1 p2) pentru a simplifica sintaxa.
+Initial am incercat un alt algoritm de sortare, anume cel prin selectie, dar am
+realizat ca m am complicat mult prea mult si am modificat, de aici si timpul pentru
+cerinta. Cea de a doua functie se ocupa cu afisarea, unde, din nou, newline urile
+au fost un impediment, pe care l am rezolvat comparand fiecare *.out cu *.ref.
+
+Cerinta 5:
+Aceasta este compusa din 4 functii diferite: prelucrare_mesaj, calculare_cod,
+codifica_mesaje si afisare_cerinta_5. In prima functie construiesc mesajul in care
+ordinea cuvintelor este inversata, eliminand toate semnele de punctuatie. Fac asta
+utilizand o copie pe care voi utliza strtok pentru a extrage fiecare cuvant in
+parte. Aceste cuvinte vor fi stocate intr un vector de cuvinte pe care il voi
+folosi, in ordine inversa a implementarii, pentru a crea mesajul final. Cea de a
+doua functie se ocupa cu calculul codului pe baza formulelor impuse la “3.
+calculeaza un cod” si “4. codul final”. Cea de a 3 a functie se ocupa cu
+codificarea mesajelor utilizandu se de cele 2 functii anterioare pentru a le
+“stoca” in structura de postas. In ultima functie ma ocup cu afisarea bazandu ma
+pe cererile impuse, utilizandu ma, de asemenea, iar de un auxiliar postas_curent.
+
+Cerinta 6:
+Aceasta este compusa din 3 functii, cea de a 4 a (afisarea) fiind aceeasi functie
+utilizata la 5. Prima functie, “contine_cifra” verifica daca codul contine o cifra
+din id, luand fiecare cifra din cod si comparand o cu id ul. Cea de a doua,
+“alterare_cod” este cea prin care, prin operatiile pe biti, reusesc sa modific
+codul unui mesaj. Astfel daca nr nu este un caz particular (0 sau 1) fac
+descompunerea in factori primi, salvandu i pe acestia intr un vector “factori”. Mai
+apoi creez o masca pe baza acestui vector pe care o voi utiliza pentru a modifica
+codul. Functia “modifica_coduri_postasi” modifica utilizandu se de alterare_cod
+daca codul contine o cifra din id. Afisarea, dupa cum am spus, o fac prin utilizarea
+“afisare_cerinta_5”.
+
+Cerinta 7:
+Aceasta, spre deosebire de celelalte este formata dintr o singura functie, dat
+fiind faptul ca este si ultima cerinta. (Si din comoditate) In cadrul acesteia
+recalculez codul mesajului original prin “prelucrare_mesaj” si compar cu codul
+(posibil) alterat. Astfel, contorizez nr de pachete corecte, scorul fiind egal cu nr
+de pachete corecte/ nr total sau 0 daca nu exista pachete.
+
+In main: pentru fiecare cerinta in parte, exista o testare cu if pentru a vedea care
+este task ul cerut si pentru a vedea ce anume trebuie afisat. In final dezaloc tot
+ceea ce am folosit, reprezentand astfel sfarsitul temei.
